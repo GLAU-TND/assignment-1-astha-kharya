@@ -34,6 +34,19 @@ public class MyLinked<E> implements Cont<E> {
         return response;
     }
 
+    private E removeFirst() {
+        Node<E> temp = head;
+        E response = null;
+        if (head == null) {
+            head = head.getNext();
+        }
+        if (temp != null) {
+            size--;
+            response = temp.getData();
+        }
+        return response;
+    }
+
     @Override
     public void add(Object item) {
 
