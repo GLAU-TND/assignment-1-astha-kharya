@@ -47,6 +47,16 @@ public class MyLinked<E> implements Cont<E> {
         return response;
     }
 
+    private E removeAfter(Node<E> afterNode) {
+        Node<E> temp = afterNode.getNext();
+        if (temp != null) {
+            afterNode.next = temp.getNext();
+            size--;
+        }
+        E response = temp.getData();
+        return response;
+    }
+
     @Override
     public void add(Object item) {
 
