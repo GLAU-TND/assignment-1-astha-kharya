@@ -45,6 +45,4 @@ public class Person {
         return p ? "Contact" + contacts : "contacts" + contacts;
     }
 
-    }
-
 }
