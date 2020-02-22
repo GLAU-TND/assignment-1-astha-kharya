@@ -4,7 +4,7 @@ import ADT.Cont;
 
 public class MyLinked<E> implements Cont<E> {
     private Node<E> head = null;
-    private int size = 0;
+    public int size = 0;
 
     private void addFirst(E item) {
         head = new Node<>(item, head);
@@ -82,7 +82,7 @@ public class MyLinked<E> implements Cont<E> {
 
     @Override
     public E getData(int index) {
-        return null;
+        return getNode(index).getData();
     }
 
     private static class Node<E> {
