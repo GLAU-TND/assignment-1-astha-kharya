@@ -1,15 +1,13 @@
 package def;
 
-import java.util.LinkedList;
-
 public class Person {
     private String firstName;
     private String lastName;
     private String email;
-    private LinkedList<String> ContactNumber;
+    private MyLinked<String> ContactNumber;
 
 
-    public Person(String firstName, String lastName, String email, LinkedList<String> contactNumber) {
+    public Person(String firstName, String lastName, String email, MyLinked<String> contactNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -28,8 +26,25 @@ public class Person {
         return email;
     }
 
-    public LinkedList<String> getContactNumber() {
-        return ContactNumber;
+    public String getContactNumber() {
+        StringBuilder contacts = new StringBuilder();
+        boolean p = false;
+        for (int i = 0; i < ContactNumber.size; i++) {
+            if (i == 0) {
+                contacts.append(ContactNumber.getData(i));
+            } else {
+                contacts.append(",").append(ContactNumber.getData(i));
+            }
+        }
+        if (ContactNumber.size == 0) {
+            contacts.append("null");
+
+        } else if (ContactNumber.size == 1) {
+            p = true;
+        }
+        return p ? "Contact" + contacts : "contacts" + contacts;
+    }
+
     }
 
 }
