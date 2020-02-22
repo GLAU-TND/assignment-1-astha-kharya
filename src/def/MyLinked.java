@@ -11,6 +11,11 @@ public class MyLinked<E> implements Cont<E> {
         size++;
     }
 
+    private void addAfter(E item, Node<E> afterNode) {
+        afterNode.next = new Node<>(item, afterNode.next);
+        size++;
+    }
+
     @Override
     public void add(Object item) {
 
