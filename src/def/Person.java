@@ -45,4 +45,9 @@ public class Person {
         return p ? "Contact" + contacts : "contacts" + contacts;
     }
 
+    @Override
+    public String toString() {
+        return "firstName:" + getFirstName() + "\n" + "lastName:" + getLastName() + "\n" + getContactNumber() + "\n" + "email:" + getEmail()
+                + "\n" + "--------*--------*--------*--------\n" + "-------*-------*-------*----------\n";
+    }
 }
