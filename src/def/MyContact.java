@@ -2,6 +2,7 @@ package def;
 
 import ADT.MyCon;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -149,6 +150,22 @@ public class MyContact implements MyCon {
 
     @Override
     public void deleteContact() {
+        Scanner sc = new Scanner(System.in);
+        printNames();
+        System.out.print("Press the number against the contact to delete it: ");
+        try {
+            int index = sc.nextInt();
+            if (index > MyContactBook.size || index == 0) {
+                System.out.println("Invaild Input");
+            } else {
+                Person p = MyContactBook.getData(index - 1);
+                String name = p.getFirstName() + p.getLastName();
+                MyContactBook.remove(index - 1);
+                System.out.println(name + "'s Contact has been removed Successfully");
+            }
+        } catch (InputMismatchException E) {
+            System.out.println("Integer input expected ");
+        }
 
     }
 
