@@ -138,6 +138,14 @@ public class MyContact implements MyCon {
 
     }
 
+    private void printNames() {
+        System.out.println("Here are your all contacts:");
+        for (int i = 0; i < MyContactBook.size; i++) {
+            Person temp = MyContactBook.getData(i);
+            System.out.println((i + 1) + "." + temp.getFirstName() + " " + temp.getLastName());
+        }
+    }
+
 
     @Override
     public void deleteContact() {
