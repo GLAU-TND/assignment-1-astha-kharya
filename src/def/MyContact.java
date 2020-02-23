@@ -14,6 +14,12 @@ public class MyContact implements MyCon {
         return firstName;
     }
 
+    private String getLastName() {
+        System.out.println("LastName: ");
+        String lastName = sc.next();
+        return lastName;
+    }
+
     @Override
     public void addContact() {
 
