@@ -7,6 +7,8 @@ import java.util.regex.Pattern;
 
 public class MyContact implements MyCon {
     Scanner sc = new Scanner(System.in);
+    MyLinked<Person> MyContactBook = new MyLinked<>();
+    MyLinked<String> contactNumbers = new MyLinked<>();
 
     private String getFirstName() {
         System.out.println("Please Enter The Name Of The Person ");
@@ -81,8 +83,45 @@ public class MyContact implements MyCon {
         }
         return Email;
     }
+
+    private int compareFirstName(String fName) {
+        int index = 0;
+        if (MyContactBook.size == 0) {
+        } else {
+            for (int i = 0; i < MyContactBook.size; i++) {
+                Person temp = MyContactBook.getData(i);
+                String name = temp.getFirstName();
+                name = name.toLowerCase();
+                fName = fName.toLowerCase();
+                if (name.compareTo(fName) < 0) {
+                    index++;
+                } else if (name.compareTo(fName) == 0) {
+                    return index;
+
+                } else {
+                    break;
+                }
+
+            }
+
+        }
+        return index;
+    }
     @Override
     public void addContact() {
+        System.out.println("You have chosen to add a new contact:");
+        String firstname = getFirstName();
+        String lastname = getLastName();
+        contactNumbers = GetContactNumbers();
+        String Email = getEmail();
+        Person newContact;
+        newContact = new Person(firstname, lastname, Email, contactNumbers);
+        int index = compareFirstName(firstname);
+        MyContactBook.add(newContact, index);
+        System.out.println("Contact Added SucessFully");
+        System.out.println();
+        System.out.println();
+
 
     }
 
