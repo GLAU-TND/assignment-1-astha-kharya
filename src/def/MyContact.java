@@ -26,11 +26,11 @@ public class MyContact implements MyCon {
 
     private MyLinked<String> GetContactNumbers() {
         MyLinked<String> contactNumbers = new MyLinked<>();
-        System.out.println("ContactNumbers: ");
-        String contactNo = sc.next();
+        System.out.println("Contact Number");
+        String contactNum = sc.next();
         while (true) {
-            if (Pattern.matches("[0-9] + ", contactNo)) {
-                contactNumbers.add(contactNo);
+            if (Pattern.matches("[0-9]+", contactNum)) {
+                contactNumbers.add(contactNum);
                 break;
             } else {
                 System.out.println("Invalid PhoneNumber");
@@ -38,30 +38,31 @@ public class MyContact implements MyCon {
             }
         }
         while (true) {
-
-            System.out.println("Do you want to add a new ContactNumber? (y/n) : ");
-            String a = sc.next();
-            char at = a.charAt(0);
-            if (a.length() > 1) {
-                System.out.println("Please Enter a valid input i.e.,y(lowerCase) for Yes or n(lowerCase for NO)");
+            System.out.println("Do You want to add new Contact Number? (y/n) :");
+            String s = sc.next();
+            char at = s.charAt(0);
+            if (s.length() > 1) {
+                System.out.println("Please enter a valid input i.e. , y(lowercase) for Yes or n(lowercase for No)");
                 continue;
             }
             if (at == 'y') {
-                System.out.println("Contact Number: ");
-                contactNo = sc.next();
-                if (Pattern.matches("[0-9]+ ", contactNo)) {
-                    contactNumbers.add(contactNo);
+                System.out.println("contactNumber: ");
+                contactNum = sc.next();
+                if (Pattern.matches("[0-9]+", contactNum)) {
+                    contactNumbers.add(contactNum);
                 } else {
                     System.out.println("Invalid PhoneNumber");
                 }
             } else if (at == 'n') {
                 break;
             } else {
-                System.out.println("Please Enter a valid input i.e.,y(lowerCase) for Yes or n(lowerCase for NO)");
+                System.out.println("Please Enter a Vaild Input i.e., y(lowercase) for Yes or n(lowercase) for NO");
             }
         }
         return contactNumbers;
+
     }
+
 
     private String getEmail() {
         String Email = null;

@@ -71,8 +71,8 @@ public class MyLinked<E> implements Cont<E> {
     }
 
     @Override
-    public void add(Object item) {
-
+    public void add(E item) {
+        add(item, size);
     }
 
     @Override
