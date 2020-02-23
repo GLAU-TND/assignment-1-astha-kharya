@@ -7,6 +7,13 @@ import java.util.Scanner;
 public class MyContact implements MyCon {
     Scanner sc = new Scanner(System.in);
 
+    private String getFirstName() {
+        System.out.println("Please Enter The Name Of The Person ");
+        System.out.println("FirstName: ");
+        String firstName = sc.next();
+        return firstName;
+    }
+
     @Override
     public void addContact() {
 
