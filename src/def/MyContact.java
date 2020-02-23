@@ -171,6 +171,42 @@ public class MyContact implements MyCon {
 
     @Override
     public void searchContact() {
+        int size = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("You could search for a contact from their first names:");
+        String name = sc.next();
+        name = name.trim();
+        MyLinked<Integer> lists = matchFirst(name);
+        boolean a = false;
+        size = lists.size;
+        if (size > 1) {
+            a = true;
+        }
 
+        System.out.println(a ? size + " Matches found!" : size + " Match found!");
+        for (int i = 0; i < size; i++) {
+            int index = lists.getData(i);
+            System.out.println(MyContactBook.getData(index));
+        }
+
+    }
+
+    private MyLinked<Integer> matchFirst(String Firstname) {
+        MyLinked<Integer> indexes = new MyLinked<>();
+        if (MyContactBook.size == 0) {
+        } else {
+            for (int i = 0; i < MyContactBook.size; i++) {
+                Person temp = MyContactBook.getData(i);
+                String name = temp.getFirstName();
+                name = name.toLowerCase();
+                Firstname = Firstname.toLowerCase();
+
+                if (name.compareTo(Firstname) == 0) {
+                    indexes.add(i);
+                }
+
+            }
+        }
+        return indexes;
     }
 }
