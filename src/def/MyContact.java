@@ -127,8 +127,17 @@ public class MyContact implements MyCon {
 
     @Override
     public void viewContact() {
+        System.out.println("---Here are all your contacts---\n" +
+                "-------- * -------- * -------- * --------");
+
+        for (int i = 0; i < MyContactBook.size; i++) {
+            Person response = MyContactBook.getData(i);
+            System.out.println(response);
+        }
+        System.out.println("Total Contacts: " + MyContactBook.size);
 
     }
+
 
     @Override
     public void deleteContact() {
